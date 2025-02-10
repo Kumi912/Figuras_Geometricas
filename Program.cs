@@ -20,7 +20,7 @@ class Program
                     Console.WriteLine("Ingrese la medida del primer lado del triángulo"); //Pedimos al usuario la medida del primer lado del triángulo
                     lado1 = double.Parse(Console.ReadLine()); //Variable para almacenar la medida del primer lado del triángulo
                 } 
-                while (lado1 <= 0); //Si el lado es menor o igual a 0 
+                while (lado1 <= 0); //Si el lado es menor o igual a 0
                 
                 do //Realiza el procedimiento del lado2
                 {
@@ -42,61 +42,63 @@ class Program
                     Console.WriteLine("El área del triágulo es: " + triangulo.CalcularArea());
                     Console.WriteLine(triangulo.TipoTriangulo()); //Llamamos al método TipoTriangulo
                     Console.WriteLine(triangulo.TipoTrianguloRectangulo()); //Llamamos al método TipoTrianguloRectangulo
-    
                 }
-            break; //Salimos del switch
-                
-
-        
+            break; //Salimos del switch       
 
             case 2: //Si el usuario selecciona la opción 2
-                Console.WriteLine("Ingrese el radio del círculo"); //Pedimos al usuario el radio del círculo
-                double radio = double.Parse(Console.ReadLine()); //Variable para almacenar el radio del círculo
-                if (radio <= 0) //Si el radio es menor o igual a 0
-                {
-                    Console.WriteLine("Ingrese un número válido"); //Mensaje de error
-                    Console.WriteLine("Ingrese el radio del círculo"); //Pedimos al usuario el radio del círculo
-                }
+                double radio;
 
-                Circulo circulo = new Circulo(radio); //Creamos un objeto
-                Console.WriteLine("El área del círculo es: " + circulo.CalcularArea()); //Llamamos al método CalcularArea
-                Console.WriteLine("El perímetro del círculo es: " + circulo.CalcularPerimetro()); //Llamamos al método CalcularPerimetro
-                break; //Salimos del switch
+                do //Realiza el procedimiento del radio
+                {
+                    Console.WriteLine("Ingrese el radio del círculo"); //Pedimos al usuario el radio del círculo
+                    radio = double.Parse(Console.ReadLine()); //Variable para almacenar el radio del círculo
+                }
+                while (radio <= 0); //Si el radio es menor o igual a 0
+                {
+                    Circulo circulo = new Circulo(radio); //Creamos un objeto
+                    Console.WriteLine("El área del círculo es: " + circulo.CalcularArea()); //Llamamos al método CalcularArea
+                    Console.WriteLine("El perímetro del círculo es: " + circulo.CalcularPerimetro()); //Llamamos al método CalcularPerimetro
+                }
+            break; //Salimos del switch
 
             case 3: //Si el usuario selecciona la opción 3
-                Console.WriteLine("Ingrese la medida del lado del cuadrado"); //Pedimos al usuario la medida del lado del cuadrado
-                double lado = double.Parse(Console.ReadLine()); //Variable para almacenar la medida del lado del cuadrado
-                if (lado <= 0) //Si el lado es menor o igual a 0
-                {
-                    Console.WriteLine("Ingrese un número válido"); //Mensaje de error
-                    break; //Salimos del switch
-                }
+                double lado;
 
-                Cuadrado cuadrado = new Cuadrado(lado); //Creamos un objeto
-                Console.WriteLine("El área del cuadrado es: " + cuadrado.CalcularArea()); //Llamamos al método CalcularArea
-                Console.WriteLine("El perímetro del cuadrado es: " + cuadrado.CalcularPerimetro()); //Llamamos al método CalcularPerimetro
-                break; //Salimos del switch
-                
+                do
+                {
+                    Console.WriteLine("Ingrese la medida del lado del cuadrado"); //Pedimos al usuario la medida del lado del cuadrado
+                    lado = double.Parse(Console.ReadLine()); //Variable para almacenar la medida del lado del cuadrado
+                }
+                while (lado <= 0); //Si el lado es menor o igual a 0
+                {
+                    Cuadrado cuadrado = new Cuadrado(lado); //Creamos un objeto
+                    Console.WriteLine("El área del cuadrado es: " + cuadrado.CalcularArea()); //Llamamos al método CalcularArea
+                    Console.WriteLine("El perímetro del cuadrado es: " + cuadrado.CalcularPerimetro()); //Llamamos al método CalcularPerimetro
+                }
+            break; //Salimos del switch
+
             case 4: //Si el usuario selecciona la opción 4
-                Console.WriteLine("Ingrese la medida de la base del rectángulo"); //Pedimos al usuario la medida del primer base del rectángulo
-                double base_ = double.Parse(Console.ReadLine()); //Variable para almacenar la medida de la base del rectángulo
-                if (base_ <= 0) //Si la base es menor o igual a 0
+                double base_;
+                double altura;
+                
+                do
                 {
-                    Console.WriteLine("Ingrese un número válido"); //Mensaje de error
                     Console.WriteLine("Ingrese la medida de la base del rectángulo"); //Pedimos al usuario la medida del primer base del rectángulo
+                    base_ = double.Parse(Console.ReadLine()); //Variable para almacenar la medida de la base del rectángulo
                 }
-
-                Console.WriteLine("Ingrese la medida de la altura del rectángulo"); //Pedimos al usuario la medida de la altura del rectángulo
-                double altura = double.Parse(Console.ReadLine()); //Variable para almacenar la medida de la altura del rectángulo
-                if (altura <= 0) //Si la altura es menor o igual a 0
+                while (base_ <= 0); //Si la base es menor o igual a 0
+                
+                do
                 {
-                    Console.WriteLine("Ingrese un número válido"); //Mensaje de error
                     Console.WriteLine("Ingrese la medida de la altura del rectángulo"); //Pedimos al usuario la medida de la altura del rectángulo
+                    altura = double.Parse(Console.ReadLine()); //Variable para almacenar la medida de la altura del rectángulo
                 }
-
+                while (altura <= 0); //Si la altura es menor o igual a 0
+                {
                 Rectangulo rectangulo = new Rectangulo(base_, altura); //Creamos un objeto
                 Console.WriteLine("El área del rectángulo es: " + rectangulo.CalcularArea()); //Llamamos al método CalcularArea
                 Console.WriteLine("El perímetro del rectángulo es: " + rectangulo.CalcularPerimetro()); //Llamamos al método CalcularPerimetro
+                }
                 break; //Salimos del switch
                 
             default: //Si el usuario selecciona una opción no válida
